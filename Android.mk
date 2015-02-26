@@ -2,7 +2,9 @@ ifeq ($(filter-out aries castor leo scorpion sirius,$(TARGET_DEVICE)),)
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(BUILD_KERNEL),)
+BUILD_KERNEL := true
+
+ifeq ($(BUILD_KERNEL),true)
 INSTALLED_KERNEL_TARGET ?= $(PRODUCT_OUT)/kernel
 
 DTB_FILES := $(shell find -L $(ANDROID_BUILD_TOP)/device/sony/$(TARGET_DEVICE)/dtbs -name "*.dtb")
